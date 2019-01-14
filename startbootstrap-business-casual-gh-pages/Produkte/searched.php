@@ -15,7 +15,8 @@ require ('header_pro.php');
                     <a class="nav-link text-expanded" href="../index.php">Hauptseite</a>
                 </li>
                 <li class="nav-item px-lg-4">
-                    <a class="nav-link text-expanded" href="produkte.php">Produkte</a>
+                    <a class="nav-link text-expanded" href="produkte.php">Produkte
+                    </a>
                 </li>
                 <li class="nav-item px-lg-4">
                     <a class="nav-link text-expanded" href="../Warenkorb/warenkorb.php">Warenkorb</a>
@@ -38,39 +39,58 @@ require ('header_pro.php');
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
+                <form action="searched.php" method="POST">
+                    <li class="nav-item px-lg-4">
+                        <input name="search" type="text" placeholder="Produktname">
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <input name="submit" type="submit" value="Suchen">
+                    </li>
+                </form>
             </ul>
         </div>
     </div>
 </nav>
+
 <?php
-    $id = $_POST['id'];
 
-    $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
+$search = $_POST['search'];
+$pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
-    $statement = $pdo->prepare("SELECT ID, Name, Beschreibung, Kurzbeschreibung, Preis FROM produkt WHERE ID = $id");
-    if($statement->execute())
+$statement = $pdo->prepare("SELECT ID, Name, Beschreibung, Preis FROM produkt WHERE Name LIKE '%$search%'");
+if($statement->execute())
+{
+    $counter = 0;
+    echo '<div style="padding: 2em;">
+            <div class="card-deck">';
+    while ($row = $statement->fetch())
     {
-        while ($row = $statement->fetch())
+        echo '<div class="card" style="width: 20%">
+                <img class="card-img-top" src="../img/products-01.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">'. utf8_encode($row['Name']) .'</h5>
+                  <p class="card-text">'. utf8_encode($row['Beschreibung']) .'</p>
+                  <div style="text-align: center">
+                    <p class="card-text">'. $row['Preis'] .'€</p>
+                    <form method="POST" action="einzelProdukt.php">
+                        <input type="hidden" name="id" value="'. utf8_encode($row['ID']) .'">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Weitere Details"> 
+                    </form>
+                  </div>
+                </div>
+              </div>';
+
+        $counter = $counter+1;
+        if ($counter % 3 == 0)
         {
-            echo '<div style="padding: 2em">
-                    <div class="card mb-3" style="text-align: center; padding: 1em;">
-                        <img class="card-img-top" style="border-radius: 1em;" src="../img/products-02.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">'. utf8_encode( $row['Name']) .'</h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <p class="card-text">'. utf8_encode( $row['Kurzbeschreibung']) .'</p>
-                                </li>
-                                <li class="list-group-item">
-                                    <p class="card-text">'. utf8_encode( $row['Beschreibung']) .'</p>
-                                </li>
-                            </ul>
-                            <p class="card-text">'. utf8_encode( $row['Preis']) .' €</p>
-                        </div>
-                    </div>
-                </div>';
+            echo '  </div>
+                    <br/>
+                    <div class="card-deck">';
         }
     }
+    echo '</div>
+            </div>';
+}
 ?>
 
 <?php
