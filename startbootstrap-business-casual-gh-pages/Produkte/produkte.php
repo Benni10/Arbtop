@@ -51,7 +51,7 @@ require ('header_pro.php');
 <?php
 $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
-$statement = $pdo->prepare("SELECT ID, Name, Beschreibung, Preis FROM produkt");
+$statement = $pdo->prepare("SELECT ID, Name, Beschreibung, Preis, SourceFront FROM produkt");
 if($statement->execute())
 {
     $counter = 0;
@@ -60,7 +60,7 @@ if($statement->execute())
     while ($row = $statement->fetch())
     {
         echo '<div class="card" style="width: 20%">
-                <img class="card-img-top" src="../img/products-01.jpg" alt="Card image cap">
+                <img class="card-img-top" src="'. utf8_encode( $row['SourceFront']) .'" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">'. utf8_encode($row['Name']) .'</h5>
                   <p class="card-text">'. utf8_encode($row['Beschreibung']) .'</p>

@@ -47,14 +47,14 @@ require ('header_pro.php');
 
     $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
-    $statement = $pdo->prepare("SELECT ID, Name, Beschreibung, Kurzbeschreibung, Preis FROM produkt WHERE ID = $id");
+    $statement = $pdo->prepare("SELECT ID, Name, Beschreibung, Kurzbeschreibung, Preis, SourceFront FROM produkt WHERE ID = $id");
     if($statement->execute())
     {
         while ($row = $statement->fetch())
         {
             echo '<div style="padding: 2em">
                     <div class="card mb-3" style="text-align: center; padding: 1em;">
-                        <img class="card-img-top" style="border-radius: 1em;" src="../img/products-02.jpg" alt="Card image cap">
+                        <img class="card-img-top" style="border-radius: 1em;" src="'. utf8_encode( $row['SourceFront']) .'" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">'. utf8_encode( $row['Name']) .'</h5>
                             <ul class="list-group list-group-flush">
@@ -64,8 +64,32 @@ require ('header_pro.php');
                                 <li class="list-group-item">
                                     <p class="card-text">'. utf8_encode( $row['Beschreibung']) .'</p>
                                 </li>
+                                <li class="list-group-item">
+                                    <p class="card-text">'. utf8_encode( $row['Preis']) .' €</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <h5 class="card-title">Schriftzug:</h5>
+                                </li>
+                                <form method="POST" action="personalization.php">
+                                    <input type="hidden" name="id" value="'. utf8_encode($row['ID']) .'">
+                                    <li class="list-group-item">
+                                        <input type="text" name="pers_text" placeholder="Ihr Schriftzug">
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input type="radio" name="row" value="left" checked>Linksbündig<br/>
+                                        <input type="radio" name="row" value="right">Rechtsbündig<br/>
+                                        <input type="radio" name="row" value="center">Mittig
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input type="radio" name="hight" value="top" checked>Oben<br/>
+                                        <input type="radio" name="hight" value="bottom">Unten<br/>
+                                        <input type="radio" name="hight" value="middle">Mittig
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input type="submit" name="submit" class="btn btn-primary" value="Schriftzug hinzufügen">
+                                    </li>
+                                </form>
                             </ul>
-                            <p class="card-text">'. utf8_encode( $row['Preis']) .' €</p>
                         </div>
                     </div>
                 </div>';
