@@ -255,3 +255,16 @@ p {
 .font-weight-light {
   font-weight: 100 !important;
 }
+#Werbetext{
+  font-family: "Arial Black";
+  color: white;
+
+}
+#Werbefragen{
+  text-align: center;
+}
+#Werbung{
+  padding: 50px;
+}
+
+
