@@ -6,8 +6,8 @@
 
 body  {
   font-family: 'Lora' ;
-  background:-webkit-gradient(linear,left top,left bottom,from(rgba(47,23,15,.65))),url(../img/shop_background.jpg);
-  background:linear-gradient(rgba(47,23,15,.65)),url(../img/shop_background.jpg);
+  background:-webkit-gradient(linear,left top,left bottom,from(rgba(47, 23, 15, 0.4))),url(../img/shop_background.jpg);
+  background:linear-gradient(rgba(47, 23, 15, 0.4)),url(../img/shop_background.jpg);
   background-attachment:fixed;
   background-position:center;
   background-size:cover}
@@ -19,7 +19,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Raleway';
+  font-family: 'fantasy';
 }
 
 p {
@@ -31,21 +31,20 @@ p {
 }
 
 .site-heading {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   line-height: 1;
-  font-family: 'Raleway';
+  font-family: 'fantasy';
 }
 
 .site-heading .site-heading-upper {
   display: block;
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 5rem;
+  font-weight: 500;
 }
 
 .site-heading .site-heading-lower {
-  font-size: 5rem;
+  font-size: 2rem;
   font-weight: 100;
   line-height: 4rem;
 }
@@ -76,32 +75,32 @@ p {
 }
 
 #mainNav {
-  background-color: rgba(47, 23, 15, 0.9);
-  font-family: 'Raleway';
+  background-color: rgba(40, 56, 88, 0.9);
+  font-family: 'fantasy';
 }
 
 #mainNav .navbar-brand {
-  color: #e6a756;
+  color:  rgba(255, 255, 255, 0.7);
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
   color: rgba(255, 255, 255, 0.7);
-  font-weight: 800;
+  font-weight: 500;
 }
 
 #mainNav .navbar-nav .nav-item.active .nav-link {
-  color: #e6a756;
+  color:  rgba(255, 255, 255, 0.7);
 }
 
 @media (min-width: 992px) {
   #mainNav .navbar-nav .nav-item .nav-link {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
   }
   #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: rgba(255, 255, 255, 0.4);
   }
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
-    color: #e6a756;
+    color:  rgba(255, 255, 255, 0.7);
   }
 }
 
@@ -146,7 +145,7 @@ p {
 .cta {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: rgba(230, 167, 86, 0.9);
+  background-color:  rgba(255, 255, 255, 0.7);
 }
 
 .cta .cta-inner {
@@ -203,7 +202,7 @@ p {
 }
 
 .list-hours .list-hours-item {
-  border-bottom: 1px solid rgba(230, 167, 86, 0.5);
+  border-bottom: 1px solid  rgba(255, 255, 255, 0.7);
   padding-bottom: .25rem;
   margin-bottom: 1rem;
   font-style: italic;
@@ -211,7 +210,7 @@ p {
 
 .list-hours .list-hours-item.today {
   font-weight: bold;
-  color: #e6a756;
+  color:  rgba(255, 255, 255, 0.7);
 }
 
 @media (min-width: 992px) {
@@ -226,15 +225,15 @@ p {
 }
 
 .footer {
-  background-color: rgba(47, 23, 15, 0.9);
+  background-color: rgba(40, 56, 88, 0.9);
 }
 
 .text-primary {
-  color: #e6a756 !important;
+  color:  rgba(255, 255, 255, 0.7); !important;
 }
 
 .bg-primary {
-  background-color: #e6a756 !important;
+  background-color:  rgba(255, 255, 255, 0.7); !important;
 }
 
 .btn {
@@ -243,21 +242,23 @@ p {
 }
 
 .btn-primary {
-  background-color: #e6a756;
-  border-color: #e6a756;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-color: rgba(0, 0, 0, 0.7);
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: #df902a;
-  border-color: #df902a;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-color:  rgba(255, 255, 255, 0.7);
 }
 
 .font-weight-light {
   font-weight: 100 !important;
 }
 #Werbetext{
-  font-family: "Arial Black";
+  text-align: center;
+  margin: auto;
   color: white;
+  font-family: Arial;
 
 }
 #Werbefragen{
@@ -266,5 +267,8 @@ p {
 #Werbung{
   padding: 50px;
 }
-
+#Aussage{
+  font-weight: bold;
+  font-size: x-large;
+}
 
