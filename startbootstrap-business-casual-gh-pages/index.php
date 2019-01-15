@@ -42,16 +42,25 @@ session_start();
     <div id="Werbetext">
 
         <p id="Werbefragen">
-            Sie möchten, dass Ihre Mitarbeiter nicht nur mit ihrem Laptop arbeiten, sondern diesen auch mit Ihrer Firma identifizieren? </br>
-            Sie möchten, dass bei externen Veranstaltungen, Schulungen, Beratungen und vielem mehr die Kunden Ihren Firmennamen in positiver Erinnerung behalten?</br></br>
+            </br>Sie möchten, dass Ihre Mitarbeiter nicht nur
+            mit ihrem Laptop arbeiten, sondern diesen auch mit Ihrer Firma identifizieren? </br>
+            Sie möchten, dass bei externen Veranstaltungen, Schulungen, Beratungen
+            und vielem mehr die Kunden Ihren Firmennamen in positiver Erinnerung behalten?
+            </br></br></br>
+        </p>
+        <p id="Aussage">
             Dann sind Sie bei „ArbTop“ genau richtig!
         </p>
         <p id="Werbung">
-         "ArbTop" verbindet Arbeit und Laptop optisch miteinander.
-        Sie können aus den verschiedenen Modellen den passenden Firmenlaptop auswählen und diesen dann mit einem Aufdruck des Firmennamens bestellen.
-        Die angebotenen Laptopmodelle sind extra auf verschiedene Firmenschwerpunkte ausgelegt und sind somit die perfekte Ergänzung für Ihre Mitarbeiter.
-        Ihre Mitarbeiter werden einen ganz neuen Bezug zu dem vorher so langweiligem Arbeitsgerät haben.</br></br>
-        Denn dank "ArbTop" wird aus dem schnöden Laptop ein schicker Firmenlaptop auf den Sie und ihre Mitarbeiter stolz sein können!
+            "ArbTop" verbindet Arbeit und Laptop optisch miteinander.
+            Sie können aus den verschiedenen Modellen den passenden Firmenlaptop
+            auswählen und diesen dann mit einem Aufdruck des Firmennamens bestellen.
+            Die angebotenen Laptopmodelle sind extra auf verschiedene Firmenschwerpunkte
+            ausgelegt und sind somit die perfekte Ergänzung für Ihre Mitarbeiter.
+            Ihre Mitarbeiter werden einen ganz neuen Bezug zu dem vorher so
+            langweiligem Arbeitsgerät haben.</br></br>
+            Denn dank "ArbTop" wird aus dem schnöden Laptop ein
+            schicker Firmenlaptop auf den Sie und ihre Mitarbeiter stolz sein können!
         </p>
     </div>
 
