@@ -46,23 +46,24 @@ require('header_pro.php');
 
     <!--Mein Code-->
     <form method = "POST" action = "neues_Produkt_func.php" accept-charset="UTF-8">
-
         <p>Name:
             <input type = "text" name = "name">
         </p>
-
         <p>Kurzbeschreibung:
             <textarea style="resize: none;" rows="5" cols="30" name = "kurzbeschreibung"></textarea>
         </p>
-
         <p>Beschreibung:
             <textarea style="resize: none;" rows="5" cols="30" name = "beschreibung"></textarea>
         </p>
-
         <p>Preis:
             <input type = "text" name = "preis">
         </p>
-
+        <p>Source Front:
+            <input type = "text" name = "sourceFront">
+        </p>
+        <p>Source Back:
+            <input type = "text" name = "sourceBack">
+        </p>
         <p>
             <input type = "submit" name = "submit" value = "Anlegen">
         </p>
