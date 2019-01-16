@@ -49,6 +49,7 @@ $textRow = $_POST['row'];
 $textHight = $_POST['hight'];
 $fontSize = $_POST['amountInput'];
 $fontFamily = $_POST['fontFamily'];
+$bId = $_SESSION['userid'];
 
 $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
@@ -63,6 +64,11 @@ if($statement->execute())
                         <div class="card-img-overlay" style="display: table; height: 100%; width: 100%; ">
                             <h5 style="padding-top: 1em; padding-bottom: 2em; padding-left: 1em; padding-right: 1em; display: table-cell; font-size: '. $fontSize .'pt; text-align: '. $textRow .'; vertical-align: '. $textHight .'; font-family: '. $fontFamily .';">'. $persText .'</h5>
                         </div>
+                        <form method="POST" action="add_to_warenkorb.php">
+                            <input type="hidden" name="bId" value="'. $bId .'">
+                            <input type="hidden" name="pId" value="'. $id .'">
+                            <input type="submit" name="submit" value="In den Warenkorb">
+                        </form>
                     </div>
                 </div>';
     }
