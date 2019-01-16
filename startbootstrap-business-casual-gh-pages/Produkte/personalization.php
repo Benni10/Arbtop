@@ -47,6 +47,8 @@ $id = $_POST['id'];
 $persText = $_POST['pers_text'];
 $textRow = $_POST['row'];
 $textHight = $_POST['hight'];
+$fontSize = $_POST['amountInput'];
+$fontFamily = $_POST['fontFamily'];
 
 $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
@@ -58,8 +60,8 @@ if($statement->execute())
         echo '<div style="padding: 2em">
                     <div class="card bg-dark text-white">
                     <img class="card-img" src="'. utf8_encode( $row['SourceBack']) .'" alt="Card image">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title" style="text-align: '. $textRow .'; vertical-align: '. $textHight .';">'. $persText .'</h5>
+                        <div class="card-img-overlay" style="display: table; height: 100%; width: 100%; ">
+                            <h5 style="padding-top: 1em; padding-bottom: 2em; padding-left: 1em; padding-right: 1em; display: table-cell; font-size: '. $fontSize .'pt; text-align: '. $textRow .'; vertical-align: '. $textHight .'; font-family: '. $fontFamily .';">'. $persText .'</h5>
                         </div>
                     </div>
                 </div>';

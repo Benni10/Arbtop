@@ -1,14 +1,14 @@
 <?php
 session_start();
-$id = $_POST['id'];
-$name = $_POST['name'];
-$vorname = $_POST['vorname'];
-$email = $_POST['email'];
-$strasse = $_POST['strasse'];
-$hausnummer = $_POST['hausnummer'];
-$plz = $_POST['plz'];
-$ort = $_POST['ort'];
-$admin = $_POST['admin'];
+$id = utf8_decode($_POST['id']);
+$name = utf8_decode($_POST['name']);
+$vorname = utf8_decode($_POST['vorname']);
+$email = utf8_decode($_POST['email']);
+$strasse = utf8_decode($_POST['strasse']);
+$hausnummer = utf8_decode($_POST['hausnummer']);
+$plz = utf8_decode($_POST['plz']);
+$ort = utf8_decode($_POST['ort']);
+$admin = utf8_decode($_POST['admin']);
 
 
 $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
@@ -17,7 +17,7 @@ $statement = $pdo->prepare("UPDATE benutzer SET Vorname = ?, Name = ?, Email = ?
 
 $statement->execute(array($vorname, $name, $email, $strasse, $hausnummer, $plz, $ort, $admin, $id));
 
-header("Location: http://localhost/I_A_Projekt/startbootstrap-business-casual-gh-pages/Admin/Benutzerverwaltung/benutzerverwaltung.php");
+header("Location: benutzerverwaltung.php");
 
 ?>
 

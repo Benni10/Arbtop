@@ -13,8 +13,11 @@ $admin = $_POST['admin'];
 $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
 $statement = $pdo->prepare("INSERT INTO benutzer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$statement->execute(array('', $vorname, $name, $email, $strasse, $hausnummer, $plz, $ort, $passwort, $admin));
+if($statement->execute(array('', $vorname, $name, $email, $strasse, $hausnummer, $plz, $ort, $passwort, $admin)))
+{
 
-header("Location: http://localhost/I_A_Projekt/startbootstrap-business-casual-gh-pages/Admin/Benutzerverwaltung/benutzerverwaltung.php");
+}
+
+header("Location: benutzerverwaltung.php");
 die();
 ?>

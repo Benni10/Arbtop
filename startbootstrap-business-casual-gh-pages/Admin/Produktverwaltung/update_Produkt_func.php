@@ -14,7 +14,7 @@ $statement = $pdo->prepare("UPDATE produkt SET Name = ?, Kurzbeschreibung = ?, B
 
 $statement->execute(array($name, $kurz_besch, $besch, $preis, $sourceFront, $sourceBack, $id));
 
-header("Location: http://localhost/I_A_Projekt/startbootstrap-business-casual-gh-pages/Admin/Produktverwaltung/produktverwaltung.php");
+header("Location: produktverwaltung.php");
 
 ?>
 

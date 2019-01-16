@@ -17,7 +17,7 @@ $statement = $pdo->prepare("UPDATE benutzer SET Vorname = ?, Name = ?, Email = ?
 
 $statement->execute(array($vorname, $name, $email, $strasse, $hausnummer, $plz, $ort, $id));
 
-header("Location: http://localhost/I_A_Projekt/startbootstrap-business-casual-gh-pages/Benutzer/profil.php");
+header("Location: profil.php");
 
 ?>
 

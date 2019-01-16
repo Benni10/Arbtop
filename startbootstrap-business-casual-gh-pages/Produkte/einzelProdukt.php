@@ -86,6 +86,16 @@ require ('header_pro.php');
                                         <input type="radio" name="hight" value="middle">Mittig
                                     </li>
                                     <li class="list-group-item">
+                                        <input type="range" name="amountRange" min="4" max="40" value="12" oninput="this.form.amountInput.value=this.value" />
+                                        <input style="width: 3em;" type="number" name="amountInput" min="4" max="40" value="12" oninput="this.form.amountRange.value=this.value" />
+                                         <select name="fontFamily">
+                                            <option value="Arial">Arial</option>
+                                            <option value="Helvetica">Helvetica</option>
+                                            <option value="Times">Times New Roman</option>
+                                            <option value="sans-serif">Sans-serif</option>
+                                         </select> 
+                                    </li>
+                                    <li class="list-group-item">
                                         <input type="submit" name="submit" class="btn btn-primary" value="Schriftzug hinzufügen">
                                     </li>
                                 </form>

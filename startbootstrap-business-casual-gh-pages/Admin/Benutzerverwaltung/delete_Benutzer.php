@@ -6,5 +6,5 @@ $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 $statement = $pdo->prepare("DELETE FROM benutzer WHERE ID = '$id'");
 $statement->execute(array());
 
-header("Location: http://localhost/I_A_Projekt/startbootstrap-business-casual-gh-pages/Admin/Benutzerverwaltung/benutzerverwaltung.php");
+header("Location: benutzerverwaltung.php");
 ?>

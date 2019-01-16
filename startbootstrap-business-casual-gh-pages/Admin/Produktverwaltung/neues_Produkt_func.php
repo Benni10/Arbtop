@@ -13,6 +13,6 @@ $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 $statement = $pdo->prepare("INSERT INTO produkt VALUES (?, ?, ?, ?, ?, ?, ?)");
 $statement->execute(array('', $name, $kurz_besch, $besch, $preis, $sourceFront, $sourceBack));
 
-header("Location: http://localhost/I_A_Projekt/startbootstrap-business-casual-gh-pages/Admin/Produktverwaltung/produktverwaltung.php");
+header("Location: produktverwaltung.php");
 die();
 ?>
