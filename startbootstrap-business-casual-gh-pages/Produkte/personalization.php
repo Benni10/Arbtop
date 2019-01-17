@@ -61,13 +61,17 @@ if($statement->execute())
         echo '<div style="padding: 2em">
                     <div class="card bg-dark text-white">
                     <img class="card-img" src="'. utf8_encode( $row['SourceBack']) .'" alt="Card image">
-                        <div class="card-img-overlay" style="display: table; height: 100%; width: 100%; ">
+                        <div class="card-img-overlay" style="display: table; height: 90%; width: 100%; ">
                             <h5 style="padding-top: 1em; padding-bottom: 2em; padding-left: 1em; padding-right: 1em; display: table-cell; font-size: '. $fontSize .'pt; text-align: '. $textRow .'; vertical-align: '. $textHight .'; font-family: '. $fontFamily .';">'. $persText .'</h5>
                         </div>
                         <form method="POST" action="add_to_warenkorb.php">
                             <input type="hidden" name="bId" value="'. $bId .'">
                             <input type="hidden" name="pId" value="'. $id .'">
-                            <input type="submit" name="submit" value="In den Warenkorb">
+                            <p>
+                                <div class="intro-button mx-auto">
+                                    <input class="btn btn-primary btn-xl" type="submit" name="submit" value="zum Warenkorb hinzufügen">
+                                </div>
+                            </p>                        
                         </form>
                     </div>
                 </div>';

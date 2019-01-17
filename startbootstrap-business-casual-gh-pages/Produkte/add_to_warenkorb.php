@@ -5,12 +5,12 @@ $bId = $_POST['bId'];
 
 $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
-$statement = $pdo->prepare("INSERT INTO warenkorb VALUES (?, ?, ?)");
-if($statement->execute(array('', $bId, $pId)))
+$statement = $pdo->prepare("INSERT INTO warenkorb VALUES (?, ?, ?, ?)");
+if($statement->execute(array('', $bId, $pId, 1)))
 {
 
 }
 
-header("Location: benutzerverwaltung.php");
+header("Location: produkte.php");
 die();
 ?>

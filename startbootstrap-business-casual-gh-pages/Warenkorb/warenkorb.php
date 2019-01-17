@@ -39,20 +39,6 @@ require ('header_war.php');
         </div>
     </div>
 </nav>
-<script>
-    'use strict';
-    function warnung(e) {
-        var check = confirm('Wollen Sie diesen Eintrag wirklich löschen?');
-        if (check == false) {
-            mySubmitFunction(e);
-        }
-    }
-
-    function mySubmitFunction(e) {
-        e.preventDefault();
-        return false;
-    }
-</script>
 <?php
 $id = $_SESSION['userid'];
 
@@ -64,28 +50,51 @@ if(isset($id))
 
     if ($statement->execute())
     {
+        echo '<form method="POST" action="del_or_buy.php">';
         while ($row = $statement->fetch())
         {
             $pId = $row['Produkt_ID'];
 
             $pPdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
-            $pStatement = $pPdo->prepare("SELECT ID, Name, Preis FROM produkt WHERE ID = '$pId' ");
+            $pStatement = $pPdo->prepare("SELECT ID, Name, Preis, SourceFront FROM produkt WHERE ID = '$pId' ");
 
             if ($pStatement->execute())
             {
                 while ($pRow = $pStatement->fetch())
                 {
-                    echo '<form onsubmit="return warnung(event)" method="POST" action="warenkorb_delete_func.php">
-                            <input type="hidden" name="id" value="' . utf8_encode($pRow['ID']).'"
-                            <label>Name: ' . utf8_encode($pRow['Name']).'</label>
-                            <label>Staückpreis: ' . utf8_encode($pRow['Name']).'</label>
-                            <input style="width: 3em;" type="number" name="amountInput" min="1" max="50" value="1">
-                            <input type="submit" name="delete" value="Aus Warenkorb entfernen">
-                          </form>';
+                    echo '  <table style="margin-left: 25%; color: white; border-bottom: 2px solid grey; ">
+                                <input type="hidden" name="id" value="'. utf8_encode($row['ID']) .'">
+                                <input type="hidden" name="pid" value="' . utf8_encode($pRow['ID']) .'">
+                                <tr>
+                                    <td>Name: </td>
+                                    <td>'. utf8_encode($pRow['Name']) .'</td>
+                                    <td rowspan="3"><img style="width: 100px;" src="' . utf8_encode($pRow['SourceFront']) .'"></td>
+                                </tr>
+                                <tr>
+                                    <td>Stückpreis: </td>
+                                    <td>'. utf8_encode($pRow['Preis']) .'</td>
+                                </tr>
+                                <tr>
+                                    <td>Menge: </td>
+                                    <td><input style="width: 3em;" type="number" name="amountInput" min="1" max="50" value="'. utf8_encode($row['Menge']) .'"></td>
+                                </tr>
+                                <tr>
+                                    <td><input class="btn btn-primary btn-x1" type="submit" name="submit" value="Aus Warenkorb entfernen"></td>
+                                </tr>
+                            </table><br/>';
                 }
             }
         }
+        if(isset())
+        {
+            echo '<input class="btn btn-primary btn-x1" style="margin-left: 35%" type="submit" name="submit" value="Kauf abschließen">';
+        }
+        else
+        {
+            echo '<p style="color: white;">Dein Warenkorb ist leer</p>';
+        }
+        echo '</form>';
     }
 }
 ?>
