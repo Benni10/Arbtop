@@ -58,7 +58,7 @@ if(isset($_POST['submit'])) {
                         }
                         if(!isset($error_message)) {
                             echo '<div style="width: 25%; text-align: center; margin: auto; text-decoration: none; color: white; font-family: Arial;">
-<p id="kaufabschluss">Der Kauf ist abgeschlossen!</p>
+                                    <p id="kaufabschluss">Der Kauf ist abgeschlossen!</p>
                                 <div style="width: 25%; text-align: center; margin: auto; text-decoration: none; color: white; font-family: Arial;">
                                     <p>Adresse:<br/>' . $_POST['vorname'] . ' ' . $_POST['nachname'] . '<br/>
                                         ' . $_POST['strasse'] . ' ' . $_POST['hausnummer'] . '<br/>

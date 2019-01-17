@@ -39,6 +39,13 @@ require ('header_kau.php');
         </div>
     </div>
 </nav>
+<?php
+    $id = $_SESSION['userid'];
+    $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
+
+    $statement = $pdo->prepare("DELETE FROM warenkorb WHERE Benutzer_ID = '$id'");
+    $statement->execute(array());
+?>
 <div style="width: 25%; text-align: center; margin: auto; text-decoration: none; color: white; font-family: Arial;">
 <p id="kaufabschluss">Der Kauf ist abgeschlossen!</p>
 </div>

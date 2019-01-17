@@ -41,7 +41,6 @@ require ('header_war.php');
 </nav>
 <?php
 $id = $_SESSION['userid'];
-
 if(isset($id))
 {
     $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
@@ -50,9 +49,11 @@ if(isset($id))
 
     if ($statement->execute())
     {
+        $pGesamt = 0;
         echo '<form method="POST" action="del_or_buy.php">';
         while ($row = $statement->fetch())
         {
+            $wId = $row['ID'];
             $pId = $row['Produkt_ID'];
 
             $pPdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
@@ -63,32 +64,34 @@ if(isset($id))
             {
                 while ($pRow = $pStatement->fetch())
                 {
+                            $pGesamt = $pGesamt + ($pRow['Preis'] * $row['Menge']);
                     echo '  <table style="margin-left: 25%; color: white; border-bottom: 2px solid grey; ">
-                                <input type="hidden" name="id" value="'. utf8_encode($row['ID']) .'">
-                                <input type="hidden" name="pid" value="' . utf8_encode($pRow['ID']) .'">
-                                <tr>
-                                    <td>Name: </td>
-                                    <td>'. utf8_encode($pRow['Name']) .'</td>
-                                    <td rowspan="3"><img style="width: 100px;" src="' . utf8_encode($pRow['SourceFront']) .'"></td>
-                                </tr>
-                                <tr>
-                                    <td>Stückpreis: </td>
-                                    <td>'. utf8_encode($pRow['Preis']) .'</td>
-                                </tr>
-                                <tr>
-                                    <td>Menge: </td>
-                                    <td><input style="width: 3em;" type="number" name="amountInput" min="1" max="50" value="'. utf8_encode($row['Menge']) .'"></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="btn btn-primary btn-x1" type="submit" name="submit" value="Aus Warenkorb entfernen"></td>
-                                </tr>
-                            </table><br/>';
+                            <input type="hidden" name="id" value="' . utf8_encode($row['ID']) . '">
+                            <input type="hidden" name="pid" value="' . utf8_encode($pRow['ID']) . '">
+                            <tr>
+                                <td>Name: </td>
+                                <td name="name">' . utf8_encode($pRow['Name']) . '</td>
+                                <td rowspan="3"><img style="width: 100px;" src="' . utf8_encode($pRow['SourceFront']) . '"></td>
+                            </tr>
+                            <tr>
+                                <td>Stückpreis: </td>
+                                <td>' . utf8_encode($pRow['Preis']) . '</td>
+                            </tr>
+                            <tr>
+                                <td>Menge: </td>
+                                <td>' . utf8_encode($row['Menge']) . '</td>
+                            </tr>
+                            <tr>
+                                <td><input class="btn btn-primary btn-x1" type="submit" name="submit" value="Aus Warenkorb entfernen"></td>
+                            </tr>
+                        </table><br/>';
                 }
             }
         }
-        if(isset())
+        if(isset($wId))
         {
-            echo '<input class="btn btn-primary btn-x1" style="margin-left: 35%" type="submit" name="submit" value="Kauf abschließen">';
+            echo '<input type="hidden" name="gPreis" value="'. $pGesamt .'">
+                    <input class="btn btn-primary btn-x1" style="margin-left: 35%" type="submit" name="submit" value="Kauf abschließen">';
         }
         else
         {

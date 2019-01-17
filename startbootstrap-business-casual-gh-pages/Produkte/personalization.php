@@ -68,9 +68,19 @@ if($statement->execute())
                             <input type="hidden" name="bId" value="'. $bId .'">
                             <input type="hidden" name="pId" value="'. $id .'">
                             <p>
-                                <div class="intro-button mx-auto">
-                                    <input class="btn btn-primary btn-xl" type="submit" name="submit" value="zum Warenkorb hinzufügen">
-                                </div>
+                            <table style="color: white; margin: auto;">
+                                <tr>
+                                    <td>Menge: </td>
+                                    <td><input style="width: 3em;" type="number" name="amountInput" min="1" max="50" value="1"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="intro-button mx-auto">
+                                            <input class="btn btn-primary btn-xl" type="submit" name="submit" value="zum Warenkorb hinzufügen">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                             </p>                        
                         </form>
                     </div>
