@@ -50,9 +50,57 @@ require('header_sta.php');
     </nav>
 
 <!--Hier Programmtext-->
+<?php
+$pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
+$statement = $pdo->prepare("SELECT * FROM statistik");
+if($statement->execute())
+{
+    $Geld = 0;
+    while ($row = $statement->fetch())
+    {
+        $pId = $row['Produkt_ID'];
+        $pPdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
+        $pStatement = $pPdo->prepare("SELECT ID, Name, Preis, SourceFront FROM produkt WHERE ID = '$pId' ");
 
+        if ($pStatement->execute())
+        {
+            while ($pRow = $pStatement->fetch())
+            {
+                $pGesamt = $row['Menge'] * $pRow['Preis'];
+                $Geld = $Geld + $pGesamt;
+                echo '<table style="margin: auto; border-bottom: 2px solid grey;">
+                        <tr>
+                            <td>Produkt:</td>
+                            <td>'. $pRow['Name'] .'</td>
+                            <td rowspan="4"><img style="width: 200px" src="../'. $pRow['SourceFront'] .'"></td>
+                        </tr>
+                        <tr>
+                            <td>Gekauft:</td>
+                            <td>'. $row['Menge'] .' mal</td>
+                        </tr>
+                        <tr>
+                            <td>Einzelpreis:</td>
+                            <td>'. $pRow['Preis'] .' €</td>
+                        </tr>
+                        <tr>
+                            <td>Verdient an Produkt:</td>
+                            <td>'. $pGesamt .' €</td>
+                        </tr>
+                      </table>';
+            }
+        }
+    }
+    echo '<table style="margin: auto;">
+                <tr>
+                    <td>Umsatz:</td>
+                    <td>'. $Geld .' €</td>
+                </tr>
+            </table>';
+}
+
+?>
 <?php
 require('footer_sta.php');
 ?>

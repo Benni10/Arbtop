@@ -40,6 +40,24 @@ require ('header_kau.php');
     </div>
 </nav>
 <?php
+$id = $_SESSION['userid'];
+if(isset($id))
+{
+    $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
+
+    $statement = $pdo->prepare("SELECT * FROM warenkorb WHERE Benutzer_ID = '$id' ");
+
+    if ($statement->execute())
+    {
+        while ($row = $statement->fetch())
+        {
+                    $wPdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
+
+                    $wStatement = $wPdo->prepare("INSERT INTO statistik VALUES (?, ?, ?)");
+                    $wStatement->execute(array('', $row['Menge'], $row['Produkt_ID']));
+        }
+    }
+}
     $id = $_SESSION['userid'];
     $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
