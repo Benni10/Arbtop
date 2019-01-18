@@ -30,7 +30,7 @@ require ('header_Log.php');
                    <input type="email" name="email" placeholder="E-Mail-Adresse"/>
                    <input type="password" name="password" placeholder="Passwort"/>
                    <button name="submit" type="submit">Login</button>
-                   <p class="message">Noch nicht registriert? <a href="register.php">Hier einen Account erstellen</a></p>
+                   <p id ="register" class="message">Noch nicht registriert? <a href="register.php">Hier einen Account erstellen</a></p>
                </form>
 
               </div>
