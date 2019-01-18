@@ -52,13 +52,12 @@ require('header_ben.php');
 
 <!--Hier Programmtext-->
 <?php
+echo'<table style="margin: auto; color: white;">';
     $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
     $statement = $pdo->prepare("SELECT ID, Vorname, Name FROM benutzer");
     if($statement->execute())
     {
-        echo'<div style="width: 25%; text-align: center; margin: auto; text-decoration: none; color: white; font-family: Arial;">';
-
         while ($row = $statement->fetch())
         {
             echo '
@@ -66,23 +65,24 @@ require('header_ben.php');
                     <form method="POST" action="update_Benutzer.php" accept-charset="UTF-8">
                         <div class="intro-button mx-auto">
                             <input type="hidden" name="id" value="'. utf8_encode($row['ID']) .'">
-                            <input class="btn btn-primary btn-xl" type="submit" name="submit" value="'. utf8_encode($row['Vorname']) .' '. utf8_encode($row['Name']) .'">
+                            <td><input class="btn btn-primary btn-x1" type="submit" name="submit" value="'. utf8_encode($row['Vorname']) .' '. utf8_encode($row['Name']) .'"></td>
                         </div>
                     </form>
-                </tr>
-                <br/>';
+                </tr>';
         }
-        echo '</div>';
     }
-?>
+echo '
+        <tr>
+            <td><br/></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="intro-button mx-auto">
+                    <a class="btn btn-primary btn-xl" href="neuer_Benutzer.php">Neuen Benutzer anlegen</a>
+                </div>
+            </td>
+        </tr>
+    </table>';
 
-<br/>
-
-<div style="width: 25%; text-align: center; margin: auto; text-decoration: none; color: white; font-family: Arial;">
-    <div class="intro-button mx-auto">
-        <a class="btn btn-primary btn-xl" href="neuer_Benutzer.php">Neuen Benutzer anlegen</a>
-    </div>
-</div>
-<?php
 require('footer_ben.php');
 ?>

@@ -65,6 +65,7 @@ require('header_pro.php');
     }
 </script>
 <?php
+echo '<table style="margin: auto; color: white">';
 if (isset($_POST['id']))
 {
     $id = $_POST['id'];
@@ -79,40 +80,55 @@ if (isset($_POST['id']))
             echo '
                 <form method="POST" action="update_Produkt_func.php" accept-charset="UTF-8">
                     <input type="hidden" name="id" value="'. $id .'">
-                    <p>Name:
-                        <input type = "text" name = "name" value="' . utf8_encode($row['Name']).'">
-                    </p>
-                    <p>Kurzbeschreibung:
-                        <textarea style="resize: none;" rows="5" cols="30" name = "kurzbeschreibung">' . utf8_encode($row['Kurzbeschreibung']).'</textarea>
-                    </p>
-                    <p>Beschreibung:
-                        <textarea style="resize: none;" rows="5" cols="30" name = "beschreibung">' . utf8_encode($row['Beschreibung']).'</textarea>
-                    </p>
-                    <p>Preis:
-                        <input type = "text" name = "preis" value="' . utf8_encode($row['Preis']).'">
-                    </p>
-                    <p>Source Front:
-                        <input type = "text" name = "sourceFront" value="' . utf8_encode($row['SourceFront']).'">
-                    </p>
-                    <p>Source Back:
-                        <input type = "text" name = "sourceBack" value="' . utf8_encode($row['SourceBack']).'">
-                    </p>
-                    <p>
-                        <div class="intro-button mx-auto">
-                            <input class="btn btn-primary btn-x1" type = "submit" name = "submit" value = "Angaben ändern">
-                        </div>
-                    </p>
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type = "text" name = "name" size="32" value="' . utf8_encode($row['Name']).'"></td>
+                    </tr>
+                    <tr>
+                        <td>Kurzbeschreibung:</td>
+                        <td><textarea style="resize: none;" rows="5" cols="30" name = "kurzbeschreibung">' . utf8_encode($row['Kurzbeschreibung']).'</textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Beschreibung:</td>
+                        <td><textarea style="resize: none;" rows="5" cols="30" name = "beschreibung">' . utf8_encode($row['Beschreibung']).'</textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Preis:</td>
+                        <td><input type = "text" name = "preis" size="32" value="' . utf8_encode($row['Preis']).'"></td>
+                    </tr>
+                    <tr>
+                        <td>Source Front:</td>
+                        <td><input type = "text" name = "sourceFront" size="32" value="' . utf8_encode($row['SourceFront']).'"></td>
+                    </tr>
+                    <tr>
+                        <td>Source Back:</td>
+                        <td><input type = "text" name = "sourceBack" size="32" value="' . utf8_encode($row['SourceBack']).'"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="intro-button mx-auto">
+                                <input class="btn btn-primary btn-x1" type = "submit" name = "submit" value = "Angaben ändern">
+                            </div>
+                        </td>
+                    </tr>
                 </form>';
         }
     }
-    echo '<form onsubmit="return warnung(event)" method="POST" action="delete_Produkt.php" accept-charset="UTF-8">
+    echo '
+            <tr>
+                <td><br/></td>
+            </tr>
+            <form onsubmit="return warnung(event)" method="POST" action="delete_Produkt.php" accept-charset="UTF-8">
             <input type="hidden" name="id" value="'. $id .'">
-            <p>
-                <div class="intro-button mx-auto">
-                    <input class="btn btn-primary btn-xl" type="submit" name="submit" value="Dieses Produkt löschen">
-                </div>
-            </p>
-          </form>';
+            <tr>
+                <td colspan="2">
+                    <div class="intro-button mx-auto">
+                        <input  class="btn btn-primary btn-xl" type="submit" name="submit" value="Dieses Produkt löschen">
+                    </div>
+                </td>
+            </tr>
+            </form>
+        </table>';
 }
 ?>
 

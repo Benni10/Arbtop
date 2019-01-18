@@ -53,7 +53,7 @@ require('header_sta.php');
 <?php
 $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
-$statement = $pdo->prepare("SELECT * FROM statistik");
+$statement = $pdo->prepare("SELECT SUM(Menge), Produkt_ID FROM statistik GROUP BY Produkt_ID");
 if($statement->execute())
 {
     $Geld = 0;
@@ -68,9 +68,9 @@ if($statement->execute())
         {
             while ($pRow = $pStatement->fetch())
             {
-                $pGesamt = $row['Menge'] * $pRow['Preis'];
+                $pGesamt = $row['SUM(Menge)'] * $pRow['Preis'];
                 $Geld = $Geld + $pGesamt;
-                echo '<table style="margin: auto; border-bottom: 2px solid grey;">
+                echo '<table style="margin: auto; border-bottom: 2px solid grey; color: white">
                         <tr>
                             <td>Produkt:</td>
                             <td>'. $pRow['Name'] .'</td>
@@ -78,7 +78,7 @@ if($statement->execute())
                         </tr>
                         <tr>
                             <td>Gekauft:</td>
-                            <td>'. $row['Menge'] .' mal</td>
+                            <td>'. $row['SUM(Menge)'] .' mal</td>
                         </tr>
                         <tr>
                             <td>Einzelpreis:</td>
@@ -92,7 +92,7 @@ if($statement->execute())
             }
         }
     }
-    echo '<table style="margin: auto;">
+    echo '<table style="margin: auto; color: white">
                 <tr>
                     <td>Umsatz:</td>
                     <td>'. $Geld .' €</td>

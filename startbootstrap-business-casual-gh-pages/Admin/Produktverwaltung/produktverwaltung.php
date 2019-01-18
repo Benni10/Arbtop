@@ -52,6 +52,7 @@ require('header_pro.php');
 
 <!--Hier Programmtext-->
 <?php
+echo '<table style="margin-left: auto; margin-right: auto">';
 $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
 
 $statement = $pdo->prepare("SELECT ID, Name FROM produkt");
@@ -62,19 +63,26 @@ if($statement->execute())
         echo '
                 <form method="POST" action="update_Produkt.php" accept-charset="UTF-8">
                     <input type="hidden" name="id" value="'. utf8_encode($row['ID']) .'">
-                    <input type="submit" name="submit" value="'. utf8_encode($row['Name']) .'">
-                </form>
-                <br/>';
+                    <tr>
+                        <td><input class="btn btn-primary btn-x1" type="submit" name="submit" value="'. utf8_encode($row['Name']) .'"></td>
+                    </tr>   
+                </form>';
     }
 }
-?>
 
-    <br/>
-    <div class="intro-button mx-auto">
-        <a class="btn btn-primary btn-xl" href="neues_Produkt.php">Neues Produkt anlegen</a>
-    </div>
+echo '  <tr>
+            <td>
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="intro-button mx-auto" style="margin: auto">
+                    <a class="btn btn-primary btn-xl"  href="neues_Produkt.php">Neues Produkt anlegen</a>
+                </div>
+            </td>
+        </tr>
+    </table>';
 
-
-<?php
 require('footer_pro.php');
 ?>
