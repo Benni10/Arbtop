@@ -25,7 +25,7 @@ require ('header_Log.php');
         <div class="about-heading-content">
             <div class="row">
                 <div class="col-xl-9 col-lg-10 mx-auto">
-                    <div id ="registrieren" class="bg-faded rounded p-5" id="register">
+                    <div class="bg-faded rounded p-5" id="register">
 
                         <form action="register_func.php" method="post" class="login-form">
                             <p class="formHeader">Persönliches:</p>
