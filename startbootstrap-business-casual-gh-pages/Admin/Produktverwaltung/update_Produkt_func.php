@@ -1,4 +1,9 @@
 <?php
+if(!isset($_SERVER['HTTP_REFERER'])){
+    // redirect them to your desired location
+    header('location: ../../index.php');
+    exit;
+}
 session_start();
 $id = $_POST['id'];
 $name = utf8_decode(nl2br($_POST['name']));

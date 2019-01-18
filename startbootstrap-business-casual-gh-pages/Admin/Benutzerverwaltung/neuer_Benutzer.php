@@ -1,4 +1,9 @@
 <?php
+if(!isset($_SERVER['HTTP_REFERER'])){
+    // redirect them to your desired location
+    header('location: ../../index.php');
+    exit;
+}
 session_start();
     require('header_ben.php');
 ?>
@@ -91,7 +96,7 @@ session_start();
             <tr>
                 <td>Admin:</td>
                 <td><input type = "radio" name = "admin" value = "1">Ja
-                <input type = "radio" name = "admin" value = "0">Nein</td>
+                <input checked type = "radio" name = "admin" value = "0">Nein</td>
             </tr>
 
             <tr>
