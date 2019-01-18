@@ -38,6 +38,13 @@ require ('header_pro.php');
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
+                <?php
+                if (isset($_SESSION['userid'])){
+                    echo'
+<li class="nav-item px-lg-4" style="border-left: 1px solid dimgrey;">
+    <a class="nav-link text-expanded" href="../Login/ausgeloggt.php">Ausloggen</a>
+</li>';}
+                ?>
             </ul>
         </div>
     </div>
