@@ -26,7 +26,7 @@ require ('header_Log.php');
         <div class="about-heading-content">
             <div class="row">
                 <div class="col-xl-9 col-lg-10 mx-auto">
-                    <div class="bg-faded rounded p-5">
+                    <div id ="register" class="bg-faded rounded p-5">
                         <?php
                         session_start();
                         $pdo = new PDO('mysql:host=localhost;dbname=arbtop', 'root', '');
