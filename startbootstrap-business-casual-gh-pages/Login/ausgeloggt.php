@@ -29,7 +29,7 @@ session_destroy();
                 <div class="row">
                     <div class="col-xl-9 col-lg-10 mx-auto">
                         <div class="bg-faded rounded p-5">
-                            <p class="message">Sie wurden ausgeloggt. <a href="../Login/login.php">Weiter zum Login</a></p>
+                            <p id ="register" class="message">Sie wurden ausgeloggt. <a href="../Login/login.php">Weiter zum Login</a></p>
                         </div>
                     </div>
                 </div>
