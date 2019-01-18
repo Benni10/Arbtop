@@ -59,7 +59,7 @@ require ('header_pro.php');
     {
         while ($row = $statement->fetch())
         {
-            echo '<div style="padding: 2em">
+            echo '<div id="Produktbeschreibung" style="padding: 2em">
                     <div class="card mb-3" style="text-align: center; padding: 1em;">
                         <img class="card-img-top" style="border-radius: 1em;" src="'. utf8_encode( $row['SourceFront']) .'" alt="Card image cap">
                         <div class="card-body">
