@@ -42,7 +42,7 @@ require ('header_Log.php');
                             if ($user && password_verify($passwort, $user['Passwort'])) {
                                 $_SESSION['userid'] = $user['ID'];
                                 $_SESSION['admin'] = $user['Administrator'];
-                                die('Login erfolgreich. Weiter zu <a href="../index.php">internen Bereich</a>');
+                                die('Login erfolgreich. Weiter zum <a href="../index.php">internen Bereich</a>');
                             } else {
                                 $errorMessage = "Email oder Passwort war ungültig";
                                 echo $errorMessage;
