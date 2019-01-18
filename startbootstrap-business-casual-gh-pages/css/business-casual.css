@@ -10,7 +10,9 @@ body  {
   background:linear-gradient(rgba(47, 23, 15, 0.4)),url(../img/shop_background.jpg);
   background-attachment:fixed;
   background-position:center;
-  background-size:cover}
+  background-size:cover;
+  color:  rgba(255, 255, 255);
+}
 
 
 h1,
@@ -271,4 +273,6 @@ p {
   font-weight: bold;
   font-size: x-large;
 }
-
+#Produktbeschreibung{
+  color: #1b1e21;
+}
