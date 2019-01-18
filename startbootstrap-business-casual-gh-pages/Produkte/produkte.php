@@ -66,7 +66,7 @@ if($statement->execute())
             <div class="card-deck">';
     while ($row = $statement->fetch())
     {
-        echo '<div class="card" style="width: 20%">
+        echo '<div id="Produktbeschreibung" class="card" style="width: 20%">
                 <img class="card-img-top" src="'. utf8_encode( $row['SourceFront']) .'" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">'. utf8_encode($row['Name']) .'</h5>
